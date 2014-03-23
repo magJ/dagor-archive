@@ -1,0 +1,28 @@
+<project name="Dagor Archive Extractor" default="jar">
+  <property name="dist_dir" location="dist"/>
+
+  <target name="compile" depends="clean">
+    <mkdir dir="bin"/>
+    <javac srcdir="src" destdir="bin" debug="true" deprecation="false" target="1.7" source="1.7">
+      <classpath>
+        <path refid="classpath" />
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="jar" depends="compile">
+    <mkdir dir="dist"/>
+    <jar destfile="dist/dagorArchiveExtract.jar">
+      <fileset dir="bin"/>
+      <manifest>
+        <attribute name="Main-Class" value="dagor.archive.ExtractGui"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="clean">
+    <delete dir="bin"/>
+    <delete dir="dist"/>
+  </target>
+
+</project>
