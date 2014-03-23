@@ -3,11 +3,7 @@
 
   <target name="compile" depends="clean">
     <mkdir dir="bin"/>
-    <javac srcdir="src" destdir="bin" debug="true" deprecation="false" target="1.7" source="1.7">
-      <classpath>
-        <path refid="classpath" />
-      </classpath>
-    </javac>
+    <javac srcdir="src" destdir="bin" debug="true" deprecation="false" target="1.7" source="1.7"/>
   </target>
 
   <target name="jar" depends="compile">
